@@ -1,0 +1,353 @@
+<!doctype html><html><head><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0A1226"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" href="icon-192.png"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Revue du matin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* ===== GABARIT FIXE « Atelier Noir × Nébuleuse » : ne pas modifier le style d'une édition à l'autre ===== */
+:root{
+  color-scheme:dark;
+  --bg:#0A1226; --glass:rgba(170,195,255,.05); --glass-2:rgba(170,195,255,.09);
+  --ink:#EEF1F8; --text:#CBD3E3; --muted:#8F9CB6; --line:rgba(190,208,240,.14);
+  --brand:#D4B77E;
+  --geo:#E8A85E; --geo-soft:rgba(232,168,94,.10);
+  --tech:#8EB9EC; --tech-soft:rgba(142,185,236,.10);
+  --recap:#E39AA6; --recap-soft:rgba(227,154,166,.10);
+  --fin:#B9A2F0; --fin-soft:rgba(185,162,240,.10); --up:#7FCB98; --dn:#EE8F7E;
+  --display:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.7;padding-inline:16px;padding-block:36px 72px;position:relative;min-height:100%}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(55% 38% at 92% 0%,rgba(232,168,94,.16),transparent 70%),
+             radial-gradient(45% 35% at 0% 45%,rgba(142,185,236,.11),transparent 70%),
+             radial-gradient(50% 35% at 100% 100%,rgba(227,154,166,.11),transparent 70%),var(--bg)}
+.wrap{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+a{color:inherit}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--body);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* En-tête */
+header{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+#edition-date{color:var(--brand)}
+h1{margin:0;width:100%;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(46px,11vw,72px);line-height:1.05;letter-spacing:-.02em;
+  border-block:1px solid rgba(212,183,126,.55);padding-block:12px 16px;
+  background:linear-gradient(100deg,#F4EAD6 10%,#D4B77E 45%,#E39AA6 75%,#8EB9EC 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;align-items:center}
+nav a{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding-bottom:3px;border-bottom:1px solid currentColor}
+nav a.geo{color:var(--geo)} nav a.tech{color:var(--tech)} nav a.recap{color:var(--recap)} nav a.fin{color:var(--fin)}
+#toggle-all{font:inherit;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+#toggle-all:hover{color:var(--ink)}
+
+/* L'essentiel */
+.essentiel{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.essentiel h2{margin:0;font-family:var(--display);font-style:italic;font-weight:500;font-size:24px;color:var(--ink)}
+.essentiel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.essentiel li{font-size:16px;line-height:1.55;color:var(--text);padding-left:14px;border-left:1px solid var(--line)}
+.tagline{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-right:8px}
+.t-geo{color:var(--geo)} .t-tech{color:var(--tech)} .t-recap{color:var(--recap)} .t-fin{color:var(--fin)}
+
+/* Sections */
+section{display:flex;flex-direction:column;scroll-margin-top:16px}
+section.geo{--c:var(--geo);--c-soft:var(--geo-soft)}
+section.tech{--c:var(--tech);--c-soft:var(--tech-soft)}
+section.recap{--c:var(--recap);--c-soft:var(--recap-soft)}
+section.finance{--c:var(--fin);--c-soft:var(--fin-soft)}
+/* Bandeau marchés (section Finance) */
+.ticker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-block:10px 6px}
+.tk{background:#0D1730;padding:11px 14px;display:flex;flex-direction:column;gap:1px}
+.tk .n{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tk .v{font-size:18px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.tk .d{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--muted)}
+.tk .d.up{color:var(--up)} .tk .d.dn{color:var(--dn)}
+.tk .v,.tk .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:640px){.ticker{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tk-note{margin:0 0 4px;font-size:13px;color:var(--muted)}
+.tk-note a{color:var(--muted)}
+.sec-head{display:flex;align-items:baseline;gap:14px;color:var(--c);margin-bottom:4px}
+.sec-head h2{margin:0;font-family:var(--display);font-style:italic;font-weight:500;font-size:34px;line-height:1.1}
+.sec-head .mono{color:var(--c);opacity:.8;white-space:nowrap}
+.sec-head::after{content:"";flex:1;height:1px;align-self:center;background:linear-gradient(90deg,var(--c),transparent)}
+.sub{margin:18px 0 0;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c)}
+
+/* Sujets dépliables */
+details.topic{border-bottom:1px solid var(--line)}
+details.topic:last-child{border-bottom:0}
+details.topic summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;column-gap:18px;row-gap:6px;padding-block:22px}
+details.topic summary::-webkit-details-marker{display:none}
+summary > *{grid-column:1}
+summary .mono{color:var(--muted)}
+summary h3{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.2;color:var(--c);text-wrap:balance}
+summary .teaser{margin:0;color:var(--text);font-size:16.5px;line-height:1.6}
+summary .chev{grid-column:2;grid-row:1 / span 3;align-self:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--glass);display:grid;place-items:center;color:var(--c);transition:transform .25s ease,background .25s ease}
+summary .chev::before{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+details[open] summary .chev{transform:rotate(180deg);background:var(--c-soft)}
+summary:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.body{display:flex;flex-direction:column;gap:14px;padding-bottom:24px;max-width:65ch}
+.body p{margin:0;color:var(--text)}
+.why{background:var(--c-soft);border-left:2px solid var(--c);border-radius:0 12px 12px 0;padding:12px 16px;font-size:16px;color:var(--ink)}
+.why b{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c);margin-bottom:3px}
+.sources{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sources span{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.sources a{font-size:13.5px;font-weight:500;text-decoration:none;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.sources a::after{content:" \2197";color:var(--c)}
+.sources a:hover{border-color:var(--c);background:var(--glass-2)}
+
+footer{font-size:14px;color:var(--muted);border-top:1px solid rgba(212,183,126,.35);padding-top:16px;text-align:center}
+@media (max-width:480px){body{font-size:16px} summary h3{font-size:21px} .sec-head h2{font-size:29px}}
+@media (prefers-reduced-motion:reduce){summary .chev{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="mono" id="edition-date">Lundi 16 novembre 2026</span>
+    <h1>Revue du matin</h1>
+    <div class="meta">
+      <span class="mono">Lecture ≈ 15 min</span>
+      <span class="mono">Géopolitique · Finance · IA &amp; Tech</span>
+    </div>
+    <nav aria-label="Sections">
+      <a class="geo" href="#geopo">Géopo</a>
+      <a class="fin" href="#finance">Finance</a>
+      <a class="tech" href="#iatech">IA / Tech</a>
+      <button type="button" id="toggle-all">Tout déplier</button>
+    </nav>
+  </header>
+
+  <div class="essentiel">
+    <h2>L'essentiel</h2>
+    <ul>
+      <li><span class="tagline t-geo">Géopo</span>L'Iran revendique une deuxième attaque de drones en trois jours contre une base américaine à Bahreïn, qui dit l'avoir repoussée : fin de deux mois d'accalmie dans le Golfe.</li>
+      <li><span class="tagline t-geo">Géopo</span>Maileva, filiale de La Poste, annonce le vol des données de 22 millions de personnes lors d'une cyberattaque en septembre.</li>
+      <li><span class="tagline t-fin">Finance</span>L'Asie recule ce matin (Taïwan −4,1 %, Séoul −2,8 %) : l'affaire Nvidia pèse encore, et le Trésor américain réclame un patron extérieur avant les résultats de mardi.</li>
+      <li><span class="tagline t-fin">Finance</span>Semaine chargée : résultats de Nvidia mardi, minutes de la Fed mercredi, prix de l'introduction en Bourse d'Anthropic mercredi soir, première cotation jeudi.</li>
+      <li><span class="tagline t-tech">IA / Tech</span>Une étude allemande trouve des milliers de sites créés avec Lovable dont la base de données se lit sans mot de passe.</li>
+    </ul>
+  </div>
+
+  <section class="geo" id="geopo">
+    <div class="sec-head"><h2>Géopo</h2><span class="mono">Hugo Décrypte + presse</span></div>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Moyen-Orient · Iran · Golfe</span>
+        <h3>Iran-Bahreïn : deuxième attaque de drones en trois jours contre une base américaine</h3>
+        <p class="teaser">Après deux mois où il visait surtout les navires à Ormuz, Téhéran s'en prend de nouveau à des installations militaires américaines dans un pays du Golfe.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Dimanche vers 4 h 30 heure locale, les Gardiens de la révolution ont affirmé avoir lancé six drones contre un radar de défense aérienne américain sur la base de Riffa, à Bahreïn, selon l'agence Fars citée par Al Jazeera. Bahreïn a déclenché ses premières alertes depuis septembre, et son armée dit avoir « intercepté et détruit » les engins ; son ministère des Affaires étrangères tient l'Iran « entièrement responsable », selon ABC News. Vendredi déjà, Téhéran disait avoir détruit un radar américain ; le commandement militaire américain (Centcom) a répondu avoir abattu deux drones, sans dégâts. Les Gardiens affirment aussi que deux pétroliers ont heurté des mines samedi à Ormuz sur une route « non autorisée », ce qui n'a pas été vérifié de façon indépendante. Sources croisées : Al Jazeera (Qatar), ABC News (États-Unis), SOFX citant BBC et Guardian, médias iraniens cités comme source officielle ; aucun média israélien n'a été lu sur ce point.</p>
+        <div class="why"><b>Pourquoi ça compte</b>Bahreïn abrite la Ve flotte américaine : viser ce pays, c'est envoyer un signal direct à Washington et aux monarchies du Golfe qu'il accuse d'aider les États-Unis. Côté iranien, le président du Parlement Ghalibaf dit vouloir sortir du « ni guerre ni paix » et attendre une réponse à sept conditions transmises via le Qatar (levée du blocus, des sanctions, fin formelle de la guerre). Côté américain, le blocus reste la stratégie, et un spécialiste cité par Al Jazeera résume le risque : une erreur de calcul. À surveiller : une riposte américaine, et l'effet sur le pétrole, qui a peu réagi ce matin.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.aljazeera.com/news/2026/11/15/iran-says-it-targets-us-radar-in-bahrain-what-do-we-know" target="_blank" rel="noopener">Al Jazeera</a><a href="https://abcnews.com/International/live-updates/iran-live-updates-americans-tired-forever-wars-araghchi/?id=137967256" target="_blank" rel="noopener">ABC News</a><a href="https://www.sofx.com/iran-hits-u-s-base-in-bahrain-with-drones-for-second-time-in-three-days/" target="_blank" rel="noopener">SOFX</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Ukraine · Russie · Négociations</span>
+        <h3>« OTAN contre Donbas » : Washington parle de positions « maximalistes », Moscou se tait</h3>
+        <p class="teaser">Au lendemain des révélations de Zelensky, l'émissaire américain Jared Kushner relativise, et le Kremlin n'a toujours pas réagi à l'idée.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Jared Kushner a écrit sur X que la presse avait rapporté « des positions maximalistes proposées par les deux camps » lors de « discussions privées », et que des « compromis pratiques » seraient nécessaires, avec les Européens « à la table », selon Al Jazeera. Le Kremlin n'a pas répondu à cette proposition, mais rappelle depuis des années qu'une adhésion de l'Ukraine à l'OTAN appellerait une « réponse dure ». Les pourparlers d'Abou Dhabi ont surtout produit un accord de principe sur un échange de plus de 1 000 prisonniers par camp sous deux à trois semaines, selon un général russe cité par HNGN ; ce serait le plus important depuis 2022, mais aucune date n'est fixée. Sur le terrain, l'Ukraine a frappé dans la nuit de samedi à dimanche des sites pétrochimiques et de missiles en Russie, et Moscou a lancé 132 drones, selon l'Institute for the Study of War (ISW, think tank américain) repris par le Kyiv Post. Sources croisées : Al Jazeera (Qatar), HNGN citant le négociateur russe Medinsky et Zelensky, Kyiv Post (Ukraine) ; aucune déclaration officielle russe sur l'offre OTAN n'a pu être lue.</p>
+        <div class="why"><b>Pourquoi ça compte</b>Les deux camps restent très loin : Medinsky affirme que « chaque pouce » de terre revendiquée « reviendra à la Russie », Zelensky répond que le Donbas « n'est pas de l'immobilier ». La sortie de Kushner peut se lire comme un démenti partiel ou comme une façon de garder l'option ouverte sans la confirmer. L'échange de prisonniers serait le premier résultat concret, utile pour la confiance. À surveiller : le sommet Trump-Xi-Poutine de jeudi à Shenzhen, où Washington dit que l'Ukraine ne sera pas au menu.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.aljazeera.com/news/2026/11/15/give-donbas-take-nato-seat-could-new-us-pitch-work-for-ukraine-russia" target="_blank" rel="noopener">Al Jazeera</a><a href="https://www.hngn.com/articles/273776/20261115/abu-dhabi-talks-yield-prisoner-swap-no-breakthrough.htm" target="_blank" rel="noopener">HNGN</a><a href="https://www.kyivpost.com/post/90195" target="_blank" rel="noopener">Kyiv Post (ISW)</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">France · Cybersécurité · Données</span>
+        <h3>Maileva, filiale de La Poste : les données de 22 millions de personnes volées</h3>
+        <p class="teaser">Bulletins de paie, factures, lettres recommandées : la plateforme qui envoie le courrier de nombreuses entreprises a été piratée à la mi-septembre.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Maileva, filiale de La Poste qui envoie pour le compte d'entreprises des documents comme des bulletins de paie, des factures ou des lettres recommandées, a subi une cyberattaque à la mi-septembre, révélée samedi 14 novembre, selon L'Express repris par Orange Actu. Les noms, prénoms et adresses postales de 22 millions de destinataires ont été volés ; franceinfo titre que « des courriers ont pu être lus ». La Poste dit avoir prévenu la CNIL (l'autorité de protection des données), porté plainte et alerté les entreprises clientes ; une enquête judiciaire est ouverte. Aucune revendication n'a été rapportée dans les sources lues. Sources croisées : L'Express (via Orange Actu), franceinfo (titre seul, page non lisible).</p>
+        <div class="why"><b>Pourquoi ça compte</b>Un nom associé à une adresse et à l'expéditeur d'un courrier (une banque, un employeur) suffit à fabriquer des arnaques crédibles : faux courriers, faux conseillers, demandes de paiement. Pour les entreprises clientes, c'est un rappel que leurs sous-traitants font partie de leur risque : le règlement européen RGPD les rend aussi responsables. Concrètement : se méfier des courriers et appels qui citent un document récent pour demander un paiement ou des codes.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://actu.orange.fr/france/les-trois-infos-a-retenir-de-ce-dimanche-15-novembre-l-express-via-6medias-CNT000002tJGB4.html" target="_blank" rel="noopener">L'Express (Orange Actu)</a><a href="https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/des-courriers-ont-pu-etre-lus-ce-que-l-on-sait-de-la-cyberattaque-contre-maileva-filiale-de-la-poste-qui-a-conduit-au-vol-de-donnees-de-22-millions-de-personnes_8283266.html" target="_blank" rel="noopener">franceinfo</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Europe · Diplomatie · Iran</span>
+        <h3>Les ministres européens se réunissent aujourd'hui sur des sanctions cyber contre l'Iran</h3>
+        <p class="teaser">Le paquet est en préparation depuis l'attribution française du sabotage des frigos de supermarchés, mais il faut l'accord des 27.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Les ministres des Affaires étrangères de l'UE se retrouvent ce lundi 16 novembre et pourraient discuter d'un nouveau paquet de sanctions contre l'Iran, que l'UE dit « finaliser » après les cyberattaques contre les systèmes de froid de centaines de supermarchés européens, selon le site espagnol Demócrata. Le contenu et les cibles ne sont pas connus. Le porte-parole de la diplomatie européenne, Anouar El Anouni, se dit prêt à une réponse « rapide et unie » ; l'UE avait déjà sanctionné en mars la société iranienne Emennet Pasargad pour des attaques en Suède et en France. Téhéran avait qualifié d'« infondées » les accusations françaises. Sources croisées : Demócrata (Espagne), Euronews (titre de l'article du 9 novembre) ; la position iranienne est connue par ses démentis.</p>
+        <div class="why"><b>Pourquoi ça compte</b>Les sanctions européennes exigent l'unanimité : la réunion dira si l'attribution française convainc ses partenaires. Une réponse commune renforcerait la dissuasion contre le sabotage d'infrastructures civiles ; un report montrerait la difficulté de prouver publiquement une cyberattaque. Le contexte du jour (drones iraniens à Bahreïn) pèse dans la discussion. À surveiller : la liste des personnes ou entités visées en fin de journée.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.democrata.es/en/international/the-eu-prepares-new-sanctions-against-iran-after-the-cyberattacks-on-supermarket-chains-in-europe/" target="_blank" rel="noopener">Demócrata</a><a href="https://www.euronews.com/2026/11/09/france-says-iran-behind-cyberattacks-on-supermarket-fridges" target="_blank" rel="noopener">Euronews</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">France · Social &amp; politique</span>
+        <h3>Universités bloquées, grève mardi, gauche divisée : le climat social se tend</h3>
+        <p class="teaser">Le ministre de l'Enseignement supérieur refuse tout semestre validé d'office, à la veille d'une journée de grève dans la fonction publique.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Depuis plusieurs semaines, des blocages perturbent des universités ; des étudiants réclament un « 10 améliorable », une note de 10/20 attribuée d'office pour valider le semestre, selon Thotis. Dimanche sur franceinfo, le ministre Philippe Baptiste a exclu toute validation automatique et proposé de discuter de la sélection en première année, selon Politique Matin ; il a aussi dit soutenir Édouard Philippe pour 2027. Une intersyndicale de la fonction publique appelle à la grève mardi 17 novembre sur les salaires. À gauche, la députée écologiste Sandrine Rousseau a appelé sur BFMTV à rejoindre « très tôt » la campagne de Jean-Luc Mélenchon, jugeant « dangereuse » la candidature de Marine Tondelier, créditée d'environ 3 %, selon L'Express. Sources croisées : Thotis, Politique Matin, L'Express (via Orange Actu).</p>
+        <div class="why"><b>Pourquoi ça compte</b>Le gouvernement fait face à deux fronts à la fois, étudiants et agents publics, avec une inflation encore élevée qui nourrit les revendications salariales. Le ministre défend l'égalité de traitement entre étudiants ; les syndicats étudiants mettent en avant ceux qui n'ont pas pu suivre les cours. À gauche, le débat porte sur l'union derrière un candidat ou la pluralité des candidatures, comme au centre et à droite avec la primaire. À surveiller : l'ampleur de la grève de mardi et la consultation des Écologistes en décembre.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://thotismedia.com/partiels-mobilisation-etudiante-philippe-baptiste-semestre/" target="_blank" rel="noopener">Thotis</a><a href="https://www.politiquematin.fr/invites-politiques-15-novembre-2026" target="_blank" rel="noopener">Politique Matin</a><a href="https://actu.orange.fr/france/les-trois-infos-a-retenir-de-ce-dimanche-15-novembre-l-express-via-6medias-CNT000002tJGB4.html" target="_blank" rel="noopener">L'Express (Orange Actu)</a></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="finance" id="finance">
+    <div class="sec-head"><h2>Finance</h2><span class="mono">Marchés · taux · entreprises</span></div>
+    <div class="ticker" role="list" aria-label="Clôtures des marchés">
+      <div class="tk" role="listitem"><span class="n">CAC 40</span><span class="v">8 368,91</span><span class="d up">+0,09 %</span></div>
+      <div class="tk" role="listitem"><span class="n">S&amp;P 500</span><span class="v">7 561,67</span><span class="d dn">−0,40 %</span></div>
+      <div class="tk" role="listitem"><span class="n">Nasdaq</span><span class="v">25 136,27</span><span class="d dn">−0,91 %</span></div>
+      <div class="tk" role="listitem"><span class="n">Dow Jones</span><span class="v">52 347,55</span><span class="d up">+0,10 %</span></div>
+      <div class="tk" role="listitem"><span class="n">Taux US 10 ans</span><span class="v">5,15 %</span><span class="d up">+0,05 pt</span></div>
+      <div class="tk" role="listitem"><span class="n">OAT 10 ans</span><span class="v">4,93 %</span><span class="d">n.d.</span></div>
+      <div class="tk" role="listitem"><span class="n">EUR / USD</span><span class="v">1,1028</span><span class="d dn">−0,23 %</span></div>
+      <div class="tk" role="listitem"><span class="n">Brent</span><span class="v">95,95 $</span><span class="d up">+0,14 %</span></div>
+      <div class="tk" role="listitem"><span class="n">Or (once)</span><span class="v">3 886,30 $</span><span class="d up">+0,03 %</span></div>
+      <div class="tk" role="listitem"><span class="n">Bitcoin</span><span class="v">≈ 65 000 $</span><span class="d up">+0,1 %</span></div>
+    </div>
+    <p class="tk-note">Clôtures du vendredi 13 novembre (marchés fermés le week-end). Indices américains, taux US 10 ans et or (contrat à terme) : bandeau de Yahoo Finance ; CAC 40, OAT, euro-dollar et Brent : Reuters via Boursorama (variation de l'OAT non indiquée). Le bitcoin cote en continu : cours de lundi 5 h heure de Paris selon CoinGecko, cité par Coin Gabbar. Ce matin, le Brent recule de 1 % vers 94,91 $ et l'euro à 1,1017 $, selon l'AP. Sources : <a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-november-13-dow-sp-500-nasdaq-nvidia-ppi-141451558.html" target="_blank" rel="noopener">Yahoo Finance</a>, <a href="https://www.boursorama.com/bourse/actualites/l-europe-finit-dans-le-rouge-nvidia-seme-le-doute-sur-la-tech-a1d95a573f6c83c5357db3ae0b1c89b8" target="_blank" rel="noopener">Reuters (Boursorama)</a>, <a href="https://www.coingabbar.com/en/crypto-news-nov-16-bitcoin-eth-price-fear-index-crypto-events" target="_blank" rel="noopener">Coin Gabbar</a>.</p>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Asie · Marchés · Semi-conducteurs</span>
+        <h3>L'Asie démarre la semaine dans le rouge, plombée par l'affaire Nvidia</h3>
+        <p class="teaser">Les fabricants de puces asiatiques décrochent (TSMC −3,4 %, SK Hynix −5,5 %), et le Japon annonce un léger recul de son économie.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Lundi matin, l'indice de Taïwan perd 4,1 %, le Kospi sud-coréen 2,8 % à 5 142,84 points et le Nikkei japonais 1,6 % à 60 182,50 points, tandis que Hong Kong gagne 0,9 %, selon l'AP. Les valeurs liées à l'IA chutent : SK Hynix −5,5 %, Samsung −3,2 %, SoftBank −4,2 %, Tokyo Electron −5,2 %, TSMC −3,4 %. Les contrats à terme sur les indices américains sont orientés à la baisse. Le PIB japonais a reculé de 0,1 % en rythme annualisé au troisième trimestre, la consommation étant freinée par la hausse des prix, selon l'AP. Vendredi à Paris, le CAC 40 avait fini quasi stable (+0,09 %), avec un Eramet en chute de 10,64 % après l'annonce d'une augmentation de capital d'environ 500 millions d'euros, selon Reuters.</p>
+        <div class="why"><b>Pourquoi ça compte</b>L'Asie fabrique l'essentiel des puces et de la mémoire vendues à Nvidia : un doute sur le leader américain se transmet immédiatement à toute la chaîne d'approvisionnement. Des analystes cités par l'AP estiment aussi que la croissance des dépenses d'investissement dans l'IA pourrait ralentir, indépendamment du scandale. Paris, moins exposé à la tech, a profité de cette rotation la semaine dernière, mais la séance du jour dira si elle tient. Une augmentation de capital (comme chez Eramet) dilue les actionnaires existants, d'où la baisse du cours.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.clickorlando.com/business/2026/11/16/stocks-decline-in-asia-as-investor-concerns-over-nvidia-fallout-extend-into-another-week/" target="_blank" rel="noopener">AP (marchés asiatiques)</a><a href="https://www.ksat.com/business/2026/11/16/japans-economy-contracts-slightly-in-the-latest-quarter-as-oil-prices-remain-high/" target="_blank" rel="noopener">AP (PIB japonais)</a><a href="https://www.boursorama.com/bourse/actualites/l-europe-finit-dans-le-rouge-nvidia-seme-le-doute-sur-la-tech-a1d95a573f6c83c5357db3ae0b1c89b8" target="_blank" rel="noopener">Reuters (Boursorama)</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">États-Unis · Gouvernance · Nvidia</span>
+        <h3>Nvidia : le Trésor veut un patron extérieur, des investisseurs plaident le retour de Huang</h3>
+        <p class="teaser">Scott Bessent donne dix jours au conseil pour s'expliquer sur des ventes en Chine, pendant que le Financial Times évoque un possible retour du fondateur.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Dimanche sur Fox News, le secrétaire au Trésor Scott Bessent a estimé que Nvidia devait chercher son prochain patron à l'extérieur, et réclamé sous dix jours des réponses sur des ventes de puces en Chine, demandant si l'entreprise avait poussé des ventes « apparemment illicites » pour « gonfler » ses résultats, selon Implicator. Le même jour, le Financial Times, relayé par Bloomberg et The Next Web, rapportait que Jensen Huang discutait d'un possible retour. Deux actionnaires, Brad Gerstner (Altimeter) et Gavin Baker (Atreides), ont demandé au conseil de garder cette option ouverte ; une pétition en ce sens, soutenue notamment par Elon Musk, dépassait 115 000 signatures samedi, selon TechCrunch. L'analyste Dan Ives (Yorkville Ives &amp; Co.) juge en revanche ce retour impossible, selon Newsweek ; Nvidia n'a pas commenté.</p>
+        <div class="why"><b>Pourquoi ça compte</b>Deux logiques s'opposent : la valeur d'un fondateur visionnaire, que ses soutiens jugent irremplaçable, et l'exigence de gouvernance et de conformité, que défend Washington. L'intervention d'un ministre dans la succession d'une entreprise privée est inhabituelle et montre que les puces sont traitées comme un enjeu de sécurité nationale. Le soupçon de ventes illicites, s'il était confirmé, poserait aussi la question de la qualité des résultats publiés. Mardi soir, la directrice générale par intérim Colette Kress présentera des résultats attendus autour de 108 milliards de dollars de chiffre d'affaires.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.implicator.ai/bessent-nvidia-board-outside-ceo-china-sales/" target="_blank" rel="noopener">Implicator</a><a href="https://thenextweb.com/news/jensen-huang-is-discussing-a-return-to-nvidia-ft-reports" target="_blank" rel="noopener">The Next Web (FT)</a><a href="https://www.newsweek.com/dan-ives-jensen-huang-nvidia-ceo-comeback-12717954" target="_blank" rel="noopener">Newsweek</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">États-Unis · Introductions en Bourse · Anthropic</span>
+        <h3>Anthropic : des ordres six fois supérieurs à l'offre avant la fixation du prix mercredi</h3>
+        <p class="teaser">La fourchette reste à 70-78 dollars, et la question est désormais de savoir si le prix final sera fixé au-dessus.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Selon Bloomberg, cité par TradingKey, les ordres des investisseurs atteignaient le 12 novembre environ six fois le nombre d'actions proposées. Le prix doit être fixé mercredi 18 novembre, pour une première cotation jeudi 19 au Nasdaq sous le symbole ANT. La fourchette de 70 à 78 dollars valorise l'entreprise entre environ 916 et 1 020 milliards de dollars selon TradingKey, pour une levée totale pouvant atteindre 90,4 milliards en comptant un placement privé de 26 milliards. UPI avait rapporté la fourchette le 10 novembre. Les estimations de valorisation varient selon que l'on compte ou non certaines actions (environ 1 200 milliards selon d'autres sources la semaine dernière). Par transparence : cette revue est rédigée par Claude, un modèle d'Anthropic.</p>
+        <div class="why"><b>Pourquoi ça compte</b>Quand un carnet d'ordres est « sursouscrit » (plus de demande que d'actions), les banques peuvent relever le prix ou la quantité, ce qui envoie un signal de confiance. Mais une partie des ordres est souvent gonflée par des investisseurs qui savent qu'ils ne seront servis qu'en partie : le chiffre n'est pas une garantie. L'opération tombe en pleine correction des valeurs de l'IA et la veille des résultats de Nvidia, ce qui rend le calendrier délicat. À surveiller : le prix final mercredi soir et le premier cours jeudi.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.tradingkey.com/analysis/stocks/us-stocks/262304476-anthropic-ipo-ant-price-above-78-orders-six-times-november-14-2026-tradingkey" target="_blank" rel="noopener">TradingKey</a><a href="https://www.upi.com/Top_News/US/2026/11/10/anthropic-ipo-stock-range-nasdaq/6651794326745/" target="_blank" rel="noopener">UPI</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">États-Unis · Fed · Crypto</span>
+        <h3>Hausse de taux de la Fed quasi certaine en décembre, le bitcoin passe sous 65 000 dollars</h3>
+        <p class="teaser">Les marchés à terme ne voient plus aucune chance de statu quo, et les cryptos encaissent près de 2 milliards de dollars de liquidations ce week-end.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Selon l'outil CME FedWatch, cité samedi par Bitcoin.com, les marchés à terme donnent 88,5 % de chances à une hausse d'un quart de point des taux de la Fed les 8 et 9 décembre, et 11,5 % à une hausse d'un demi-point ; la fourchette actuelle est de 3,75 % à 4 %. Le gouverneur Christopher Waller a évoqué le 10 novembre une possible hausse d'un demi-point si l'inflation reste élevée. Le bitcoin est tombé près de 62 000 dollars dimanche avant de revenir vers 65 000 lundi, en baisse de plus de 13 % sur sept jours, selon crypto.news ; les fonds indiciels (ETF) bitcoin américains ont perdu environ 1,9 milliard de dollars en sept séances. L'indice « Fear &amp; Greed » des cryptos est à 10 sur 100, « peur extrême », selon Coin Gabbar.</p>
+        <div class="why"><b>Pourquoi ça compte</b>La Fed remonte ses taux pour freiner une inflation repartie avec l'énergie : cela rend l'argent plus cher et pèse d'abord sur les actifs les plus spéculatifs, crypto et valeurs de croissance. Le bitcoin, souvent présenté comme une protection, se comporte ici comme un actif risqué. Les liquidations (ventes forcées de positions financées à crédit) accélèrent les baisses. À surveiller : les minutes de la dernière réunion de la Fed, publiées mercredi, qui diront si le débat porte sur un quart ou un demi-point.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://news.bitcoin.com/market-updates/fed-rate-hike-odds-reach-near-certainty-as-bitcoin-price-falls-to-65k/" target="_blank" rel="noopener">Bitcoin.com</a><a href="https://crypto.news/bitcoin-price-prediction-btc-62k-rebound/" target="_blank" rel="noopener">crypto.news</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Agenda · Semaine du 16 au 20 novembre</span>
+        <h3>À surveiller cette semaine : Nvidia, Vinci, Lagarde, Walmart et Anthropic</h3>
+        <p class="teaser">Une semaine où l'IA, la consommation américaine et plusieurs valeurs françaises publient, avec la BCE en prise de parole mercredi.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Lundi : production industrielle de la zone euro (11 h) et résultats d'Aéroports de Paris. Mardi : indice ZEW allemand, ventes au détail américaines (14 h 30), résultats de Vinci, Alstom, Home Depot, Disney et Nvidia après la clôture de Wall Street. Mercredi : discours de Christine Lagarde (15 h 25), résultats de Soitec, Palo Alto Networks et Lowe's, minutes de la Fed et prix de l'introduction d'Anthropic. Jeudi : résultats d'Ubisoft, Elior et Walmart, première cotation d'Anthropic et sommet Trump-Xi-Poutine à Shenzhen. Vendredi : confiance des entreprises en France, résultats de Vallourec. Sources : agendas Zonebourse relayés par Bourse Direct, et presse pour Anthropic et la Fed.</p>
+        <div class="why"><b>Pourquoi ça compte</b>Les ventes au détail et les résultats de Walmart et Home Depot diront si le consommateur américain tient face à l'inflation et aux hausses de taux. Lagarde peut préparer le terrain à un durcissement de la BCE, ce qui ferait monter les taux européens et donc le coût de la dette française. Côté Paris, Vinci et Alstom renseignent sur les infrastructures et le transport, Soitec et Ubisoft sur la tech française. Nvidia mardi soir donnera le ton de toute la fin de semaine.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.boursedirect.fr/fr/actualites/categorie/analyse-de-la-tendance-des-marches/agenda-macro-zonebourse-semaine-du-16-au-20-novembre-2026-zone-bourse-157952242181b06a5cbbc0ed681844f04429c891" target="_blank" rel="noopener">Agenda macro</a><a href="https://www.boursedirect.fr/fr/actualites/categorie/actualites-financieres/agenda-zonebourse-des-resultats-de-societes-semaine-du-16-au-20-novembre-2026-zone-bourse-d64ab70d5e7d82a677c90a6a9629359778479751" target="_blank" rel="noopener">Agenda des résultats</a></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="tech" id="iatech">
+    <div class="sec-head"><h2>IA / Tech</h2><span class="mono">US &amp; monde</span></div>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Europe · Sécurité · Outils no-code</span>
+        <h3>Lovable : des milliers de sites dont la base de données se lit sans mot de passe</h3>
+        <p class="teaser">Passeports, messages privés, commandes avec paiements : une étude allemande montre le revers des sites créés par IA sans compétences techniques.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>La société de sécurité allemande Crissy Field et le quotidien Handelsblatt ont recensé 159 041 projets en ligne créés avec Lovable entre décembre 2025 et septembre 2026 ; sur les 34 545 qui utilisent la base de données Supabase, 24 664 renvoyaient des données dès l'ouverture de la page, sans connexion, selon Trending Topics. Des requêtes en lecture seule ont donné accès à des adresses e-mail sur 7 403 sites ; parmi les exemples, plus de 1 000 données de passeports et 200 000 messages privés d'un forum allemand. La cause : des règles de sécurité par ligne (« Row Level Security ») absentes ou trop larges dans la base. Lovable, start-up suédoise, parle d'un problème de configuration connu de toute la filière et met en avant ses outils d'analyse de sécurité. Les chercheurs ne savent pas si des données ont été exploitées.</p>
+        <div class="why"><b>Pourquoi ça compte, et en France ?</b>L'outil est disponible en France et largement utilisé par des indépendants et des petites entreprises. Le point clé : la clé Supabase visible dans le navigateur est publique par conception, seule la configuration des règles protège les données ; or les conditions d'utilisation de Lovable laissent la responsabilité au client. Si une donnée personnelle fuit, c'est l'éditeur du site qui répond au regard du RGPD. Réflexe concret : lancer le scan de sécurité, vérifier les règles de chaque table et considérer toute table comme publique tant qu'elle n'a pas été revue.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.trendingtopics.eu/lovable-apps-sensitive-data-exposed/" target="_blank" rel="noopener">Trending Topics</a><a href="https://www.startuphub.ai/ai-news/artificial-intelligence/2026/lovable-apps-left-passports-and-chats-exposed" target="_blank" rel="noopener">StartupHub</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">Monde · Puces · Géoéconomie</span>
+        <h3>« Pax Silica » : Washington et huit alliés signent un pacte sur les chaînes d'approvisionnement de l'IA</h3>
+        <p class="teaser">Juste avant la rencontre Trump-Xi, la déclaration prévoit une liste commune de technologies à protéger ; l'Union européenne doit signer la semaine prochaine.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>Les États-Unis, le Japon, l'Australie, Israël, le Royaume-Uni, la Corée du Sud, l'Inde, le Qatar et les Émirats ont signé la « déclaration de San Francisco », selon le Financial Times relayé par FourWeekMBA et Business Standard. Le texte prévoit une liste commune des technologies et chaînes d'approvisionnement critiques pour l'IA (semi-conducteurs, minerais, énergie), des protections contre le vol de technologie et des groupes de travail. La Commission européenne, l'Allemagne, la Suède et les Pays-Bas doivent signer la semaine prochaine ; la France n'est pas mentionnée dans les sources lues. Le texte complet n'est pas publié et son caractère contraignant n'est pas précisé. L'initiative Pax Silica, lancée en décembre 2025 par le département d'État, vise à réduire la dépendance à la Chine.</p>
+        <div class="why"><b>Pourquoi ça compte, et en France ?</b>Une puce peut être conçue dans un pays, fabriquée dans un autre et expédiée d'un troisième, résume le responsable américain Jacob Helberg : chaque maillon devient un enjeu de sécurité. Pour Washington, c'est un front commun face à Pékin ; aucune réaction chinoise n'a été lue dans les sources consultées. L'Europe négocie en bloc via la Commission, ce qui concernerait la France indirectement. À surveiller : la réaction chinoise au sommet de Shenzhen jeudi.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://www.business-standard.com/world-news/india-signs-us-led-pax-silica-declaration-to-secure-ai-supply-chains-126111600037_1.html" target="_blank" rel="noopener">Business Standard</a><a href="https://fourweekmba.com/ai-us-8-partners-sign-ai-supply-pact-before-trump-xi-talks/" target="_blank" rel="noopener">FourWeekMBA</a></div>
+      </div>
+    </details>
+
+    <details class="topic">
+      <summary>
+        <span class="mono">États-Unis · Agents IA · Entreprises</span>
+        <h3>Agents IA : LangChain lève 300 millions, AT&amp;T dit en faire tourner 500</h3>
+        <p class="teaser">Les outils qui servent à construire des agents attirent les fonds, et un grand opérateur publie ses chiffres d'usage en production.</p>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="body">
+        <p>LangChain, dont les outils servent à construire des applications et des agents à partir de modèles d'IA, a levé 300 millions de dollars en série C menée par CapitalG (fonds de Google), pour une valorisation de 3 milliards, plus du double d'il y a un an, selon AI Agent Store et AI Weekly citant TechCrunch. L'opérateur AT&amp;T dit faire tourner près de 500 processus automatisés par des agents, plus d'un million de transactions par mois, avec contrôle humain tant que la précision ne dépasse pas le milieu des 90 % ; ces chiffres sont déclarés par l'entreprise. ElevenLabs présente en avant-première ElevenAI, qui transcrit les réunions et rédige les suivis (accès sur liste d'attente). Les sources lues sont des agrégateurs, non les communiqués d'origine.</p>
+        <div class="why"><b>Pourquoi ça compte, et en France ?</b>Le marché passe de la démonstration à la production : les entreprises veulent des agents mesurables, avec des garde-fous. LangChain est open source et utilisable depuis la France ; ElevenLabs est disponible en Europe, mais la disponibilité d'ElevenAI n'est pas précisée. Pour un cabinet B2B, le cas AT&amp;T donne une méthode : automatiser d'abord les tâches internes, garder un humain sur ce qui touche le client. À surveiller : l'effet du coup de froid sur l'IA en Bourse sur les levées de fonds.</div>
+        <div class="sources"><span>Pour aller plus loin</span><a href="https://aiagentstore.ai/ai-agent-news/this-week" target="_blank" rel="noopener">AI Agent Store</a><a href="https://aiweekly.co/ai-news-today" target="_blank" rel="noopener">AI Weekly</a></div>
+      </div>
+    </details>
+  </section>
+
+  <footer>Générée automatiquement chaque matin par Claude. Touche un sujet pour le déplier ; les liens mènent aux sources originales. Édition du lundi : pas de nouvelle newsletter Hugo Décrypte depuis vendredi, la section Géopo s'appuie sur la presse du week-end. Vérifie les chiffres importants avant de les réutiliser.</footer>
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('toggle-all');
+  if(!b)return;
+  function all(){return [].slice.call(document.querySelectorAll('details.topic'))}
+  function sync(){var d=all();b.textContent=d.length&&d.every(function(x){return x.open})?'Tout replier':'Tout déplier'}
+  b.addEventListener('click',function(){var d=all();var open=!d.every(function(x){return x.open});d.forEach(function(x){x.open=open});sync()});
+  all().forEach(function(x){x.addEventListener('toggle',sync)});
+})();
+</script>
+
+</body></html>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
